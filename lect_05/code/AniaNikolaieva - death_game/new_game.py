@@ -20,7 +20,8 @@ scenes = {
 		'choices': {
 			'description': 'Введите 1, чтобы выбрать правую; 2, чтобы выбрать левую',
 			1: 4,
-			2: 0,
+			# 2: 0,
+            2: 6,
 		}
 	},
 	4: {
@@ -51,7 +52,8 @@ scenes = {
 		'name': 'Булыжник падает в появившемся за вами люке, но в стене открывается дверь, из которой выбегает маньяк с бензопилой. А впереди открывается люк.',
 		'choices': {
 			'description': 'Введите 1, чтобы перепрыгнуть люк и убежать от маньяка; 2, чтобы прыгнуть в люк',
-			1: 0,
+			# 1: 0,
+            1: 5,
 			2: 8,
 		}
 	},
@@ -65,33 +67,13 @@ scenes = {
 	},
 }
 
-def get_choice(scene=1):
-    if scene == 0:
-        print("Ты умер!")
-        return
-    if scene == 'exit':
-        print("Ура! Ты нашел выход!")
-        return
-    print(scenes[scene]['name'])
-    while True:
-        try:
-            choice = int(input('{}: '.
-                format(scenes[scene]['choices']['description'])))
-        except ValueError:
-            choice = 3
-        if choice in [1, 2]:
-            get_choice(scenes[scene]['choices'][choice])
-            return
-        else:
-            print("Всего два варианта! 1 или 2")
-
 # def get_choice(scene=1):
 #     if scene == 0:
 #         print("Ты умер!")
-#         return 'exit'
+#         return
 #     if scene == 'exit':
 #         print("Ура! Ты нашел выход!")
-#         return 'exit'
+#         return
 #     print(scenes[scene]['name'])
 #     while True:
 #         try:
@@ -100,14 +82,34 @@ def get_choice(scene=1):
 #         except ValueError:
 #             choice = 3
 #         if choice in [1, 2]:
-#             return scenes[scene]['choices'][choice]
+#             get_choice(scenes[scene]['choices'][choice])
+#             return
 #         else:
 #             print("Всего два варианта! 1 или 2")
 
-get_choice()
+def get_choice(scene=1):
+    if scene == 0:
+        print("Ты умер!")
+        return 'exit'
+    if scene == 'exit':
+        print("Ура! Ты нашел выход!")
+        return 'exit'
+    print(scenes[scene]['name'])
+    while True:
+        try:
+            choice = int(input('{}: '.
+                format(scenes[scene]['choices']['description'])))
+        except ValueError:
+            choice = 3
+        if choice in [1, 2]:
+            return scenes[scene]['choices'][choice]
+        else:
+            print("Всего два варианта! 1 или 2")
 
-# next_step = get_choice(scene=1)
-# while True:
-#     if next_step == 'exit':
-#         break
-#     next_step = get_choice(next_step)
+# get_choice()
+
+next_step = get_choice()
+while True:
+    if next_step == 'exit':
+        break
+    next_step = get_choice(next_step)
