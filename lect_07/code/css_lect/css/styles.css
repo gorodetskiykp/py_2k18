@@ -1,0 +1,67 @@
+div {
+    background-color: blue; 
+    color: #FFFFFF;
+    margin: 5px 100px 5px 100px; 
+    padding: 5px;
+    border: red 5px dashed;
+}
+
+h1 {
+    font-size: 400%;
+    font-style: italic;
+    color: red;
+    text-shadow: 10px 10px 10px gray;
+}
+
+.secondDiv {
+    padding: 20px;
+    font-size: 150%;
+}
+
+.secondDiv:hover {
+    background-color: #555; 
+}
+
+#divDiv {
+    width: 50%;
+}
+
+#divSubdiv {
+    width: 50%;
+    background-color: red;
+    margin: 0px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: red;
+    font-size: 110%;
+}
+
+a:active {
+    color: yellow;
+}
+
+p {
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+td {
+    text-align: center;
+    border: 1px solid black;
+    vertical-align: middle;
+}
+
+tr {
+    border: black 1px solid;
+}
